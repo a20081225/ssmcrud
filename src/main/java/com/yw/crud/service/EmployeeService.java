@@ -32,7 +32,6 @@ public class EmployeeService {
         employeeMapper.insertSelective(employee);
     }
 
-
     /**
      * 检验用户是否重复
      * @param empName
