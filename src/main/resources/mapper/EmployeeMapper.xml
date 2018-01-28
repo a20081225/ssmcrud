@@ -87,12 +87,13 @@
   <!--List<Employee> selectByExampleWithDept(EmployeeExample example);
     Employee selectByPrimaryKeyWithDept(Integer empId);-->
   <!--联合查询-->
-  <select id="selectByExampleWithDept" resultMap="WithDeptBaseResultMap">
+  <select id="selectByExampleWithDept" parameterType="com.yw.crud.bean.EmployeeExample" resultMap="WithDeptBaseResultMap">
+    select
     <if test="distinct">
       distinct
     </if>
     <include refid="WithDept_Column_List" />
-    from tbl_emp e LEFT JOIN tbl_dept d ON e.'d_id'=d.'dept_id'
+    from tbl_emp e LEFT JOIN tbl_dept d ON e.d_id=d.dept_id
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -103,7 +104,7 @@
   <select id="selectByPrimaryKeyWithDept" resultMap="WithDeptBaseResultMap">
     select
     <include refid="WithDept_Column_List" />
-    from tbl_emp e LEFT JOIN tbl_dept d ON e.'d_id'=d.'dept_id'
+    from tbl_emp e LEFT JOIN tbl_dept d ON e.d_id=d.dept_id
     where emp_id = #{empId,jdbcType=INTEGER}
   </select>
 

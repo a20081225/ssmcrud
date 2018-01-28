@@ -14,7 +14,7 @@
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
        <property name="prefix" value="/WEB-INF/views/"></property>
-        <property name="suffix" value=".jsp"></property>
+       <property name="suffix" value=".jsp"></property>
     </bean>
 
     <!--将springmvc不能处理的资源交给tomcat-->

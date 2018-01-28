@@ -1,17 +1,35 @@
 package com.yw.crud.bean;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.Pattern;
+
 public class Employee {
     private Integer empId;
 
+    @Pattern(regexp = "(^[a-zA-Z0-9_-]{6,16}$)|(^[\\u2E80-\\u9FFF]{2,5})",message = "英文数字6-16位或者汉字2-5位")
     private String empName;
 
     private String gender;
 
+    @Email
     private String email;
 
     private Integer dId;
 
     private Department department;
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(Integer empId, String empName, String gender, String email, Integer dId) {
+        this.empId = empId;
+        this.empName = empName;
+        this.gender = gender;
+        this.email = email;
+        this.dId = dId;
+    }
 
     public Department getDepartment() {
         return department;
